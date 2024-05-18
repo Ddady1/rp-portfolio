@@ -1,0 +1,23 @@
+<!-- books/templates/books/book_index.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>Books</h1>
+<div class="row">
+{% for book in books %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.book_nam }}</h5>
+                <p class="card-text">{{ book.printed_price }}</p>
+                <a href="{% url 'book_detail' book.pk %}"
+                   class="btn btn-primary">
+                    More Details
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

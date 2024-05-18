@@ -12,4 +12,12 @@ def book_index(request):
     }
     return render(request, 'books/book_index.html', context)
 
+
+def book_detail(request, pk):
+    book = Book.obects.get(pk=pk)
+    context = {
+        'book': book
+    }
+    return render(request, 'books/book_detail.html', context)
+
 # Create your views here.

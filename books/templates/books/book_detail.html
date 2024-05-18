@@ -1,0 +1,16 @@
+<!-- books/templates/books/book_detail.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>{{ book.book_name }}</h1>
+<div class="row">
+    <div class="col-md-4">
+        <h5>Book Details:</h5>
+        <p>{{ book.author_name }}</p>
+        <br>
+        <h5>Price:</h5>
+        <p>{{ book.printed_price }}</p>
+    </div>
+</div>
+{% endblock page_content %}
