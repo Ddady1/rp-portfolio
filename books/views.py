@@ -3,9 +3,10 @@
 
 from django.shortcuts import render
 from books.models import Book
+from books.Tzomet_script import tzomet
 
 
-def book_index(request):
+'''def book_index(request):
     books = Book.objects.all()
     context = {
         'books': books
@@ -18,6 +19,10 @@ def book_detail(request, pk):
     context = {
         'book': book
     }
-    return render(request, 'books/book_detail.html', context)
+    return render(request, 'books/book_detail.html', context)'''
+
+def t_book(request):
+    book = tzomet(request)
+    print(book)
 
 # Create your views here.
