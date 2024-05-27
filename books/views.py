@@ -21,8 +21,12 @@ def book_detail(request, pk):
     }
     return render(request, 'books/book_detail.html', context)'''
 
-def t_book(request):
-    book = tzomet(request)
-    print(book)
+def book_index(name):
+    book = tzomet(name)
+    context = {
+        'book': book
+    }
+    return render(name, 'books/book_index.html', context)
 
+name = book_index('מתג השמדה')
 # Create your views here.
