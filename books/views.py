@@ -6,7 +6,7 @@ from books.models import Book
 from books.Tzomet_script import tzomet
 
 
-'''def book_index(request):
+def book_index(request):
     books = Book.objects.all()
     context = {
         'books': books
@@ -19,14 +19,15 @@ def book_detail(request, pk):
     context = {
         'book': book
     }
-    return render(request, 'books/book_detail.html', context)'''
+    return render(request, 'books/book_detail.html', context)
 
-def book_index(name):
+'''def book_index(name):
     book = tzomet(name)
     context = {
         'book': book
     }
-    return render(name, 'books/book_index.html', context)
+    return render(name, 'books/testh.html', context)
+    print(book)
 
 name = book_index('מתג השמדה')
-# Create your views here.
+# Create your views here.'''

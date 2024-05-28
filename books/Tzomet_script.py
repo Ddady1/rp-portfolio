@@ -28,16 +28,16 @@ def tzomet(bookname):
         raw_details = book.text
         book_id = book.get_attribute("data-prodid")
         book_details = raw_details.split('\n')
-        print(book_details)
+        #print(book_details)
         if exc[looper].text in book_details:
             book_details.remove(exc[looper].text)
         if price_str in book_details:
             book_details.remove(price_str)
-        print(book_details)
+        #print(book_details)
         if len(book_details) >= 5:
             book_details.pop(0)
         book_details.append(books_image[looper])
-        print(book_details)
+        #print(book_details)
         if in_basket in book_details:
             in_stock = 'במלאי'
         else:
@@ -46,38 +46,25 @@ def tzomet(bookname):
         book_details.insert(3, in_stock)
         book_details.append(is_printed)
 
-        i = 0
+        ########## For checking purposes ##########
+        '''i = 0
         for item in book_details:
             print(f'{i} - {item}')
             i += 1
         if looper < len(exc) - 1:
             looper += 1
-            # print(looper)
+            # print(looper)'''
+        ###########################################
         books_dict[book_id] = book_details
-    '''for book in books:
-        # print(item.text)
-        book_details = []
-        bookid = book.get_attribute("data-prodid")
-        book_name = book.get_attribute("data-fullname")
-        book_publish = book.get_attribute("data-manufacturer")
-        book_details.append(book_name)
-        book_details.append(authors[looper].text)
-        book_details.append(book_publish)
-        book_details.append(prices[looper].text)
-        book_details.append(books_image[looper])
-        looper += 1
-        books_dict[bookid] = book_details
-        # print(book_details)
 
-    return books_dict'''
     #print(books_dict)
     return books_dict
 
 
 #driver = webdriver.Chrome()
 # driver.get('https://www.booknet.co.il/')
-bookname = input('Please enter books name:')
+#bookname = input('Please enter books name:')
 
 
 
-print('Books from צומת ספרים \n', tzomet(bookname))
+#print('Books from צומת ספרים \n', tzomet(bookname))
