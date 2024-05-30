@@ -67,4 +67,4 @@ def tzomet(bookname):
 
 
 
-#print('Books from צומת ספרים \n', tzomet(bookname))
+#print('Books frm צומת ספרים \n', tzomet(bookname))

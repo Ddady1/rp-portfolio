@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title> Book Details</title>
+
+  </head>
+  <body>
+    {% for value in book.values %}
+        {% for item in value %}
+            <tr>
+                <td>
+                    {{ item }}
+                </td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+
+  </body>
+</html>
