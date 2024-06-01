@@ -3,5 +3,11 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-    <h1>Hello, Mama!</h1>
+    <h1>Please type the book name to search...</h1>
+    <form>
+        <input type="text" id="bookn">
+        <button class="button is-success is-fullwidth is-medium mt-5"
+                type="submit">Search...
+        </button>
+    </form>
 {% endblock page_content %}
