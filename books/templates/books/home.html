@@ -5,8 +5,13 @@
 {% block page_content %}
     <h1>Please type the book name to search...</h1>
     <form action="" method="get">
-        <input class="form-control m-3 w-50 mx-auto" type="text" name="book_name" id="book_name">
-        <input class="btn btn-primary btn-lg my-3" type="submit" value="SEARCH">
+        <!--<input class="form-control m-3 w-50 mx-auto" type="text" name="book_name" id="book_name">
+        <input class="btn btn-primary btn-lg my-3" type="submit" value="SEARCH">-->
+        <a href="{% url 'book_index' book %}"
+                   class="btn btn-primary">
+                    More Details
+                </a>
+            </div>
 
     </form>
 {% endblock page_content %}

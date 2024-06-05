@@ -21,6 +21,21 @@ def book_detail(request, pk):
     }
     return render(request, 'books/book_detail.html', context)'''
 
+def home_html(request):
+    if request.method == "GET" and 'book_name' in request.GET:
+        book_name = request.GET.get('book_name')
+        book = tzomet(book_name)
+        context = {
+            'book': book
+        }
+    else:
+        context = {
+            'book': 'No book was found'
+        }
+
+    return render(request, 'books/home.html', context)
+
+
 def book_index(request):
     name = input('Please enter books name:')
     book = tzomet(name)
@@ -30,6 +45,7 @@ def book_index(request):
     }
     return render(request, 'books/testh.html', context)
     print(book)
+
 
 #name = book_index('מתג השמדה')
 # Create your views here.'''
