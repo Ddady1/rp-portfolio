@@ -33,7 +33,7 @@ def home_html(request):
             'book': 'No book was found'
         }
 
-    return render(request, 'books/home.html', context)
+    return render(request, 'books/testh.html', context)
 
 
 def book_index(request):
