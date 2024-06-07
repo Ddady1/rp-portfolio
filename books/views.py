@@ -4,6 +4,7 @@
 from django.shortcuts import render
 from books.models import Book
 from books.Tzomet_script import tzomet
+from books.forms import SearchBook
 
 
 '''def book_index(request):
@@ -22,7 +23,7 @@ def book_detail(request, pk):
     return render(request, 'books/book_detail.html', context)'''
 
 def home_html(request):
-    if request.method == "GET" and 'book_name' in request.GET:
+    '''if request.method == "GET" and 'book_name' in request.GET:
         book_name = request.GET.get('book_name')
         book = tzomet(book_name)
         context = {
@@ -31,20 +32,23 @@ def home_html(request):
     else:
         context = {
             'book': 'No book was found'
-        }
+        }'''
+    return render(request, 'books/home.html', {})
 
-    return render(request, 'books/testh.html', context)
 
-
-def book_index(request):
-    name = input('Please enter books name:')
+def book_index(request, name):
+    #name = input('Please enter books name:')
     book = tzomet(name)
     print(book)
     context = {
         'book': book
     }
     return render(request, 'books/testh.html', context)
-    print(book)
+    #print(book)
+
+def bookform(request):
+    form = SearchBook()
+    return render(request, 'books/home.html', {'form': form})
 
 
 #name = book_index('מתג השמדה')
