@@ -21,10 +21,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from listings import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('books.urls')),
     path('projects/', include('projects.urls')),
     path('books/', include('books.urls')),
+    path('hello/', views.hello),
+    path('about-us', views.about),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
