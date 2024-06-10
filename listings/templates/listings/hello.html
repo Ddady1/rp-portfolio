@@ -1,8 +1,9 @@
 <!-- listings/templates/listings/hello.html -->
 
-<html>
+{% extends 'listings/base.html' %}
+{% block content %}
     <head><title>Music</title></head>
-    <body>
+
         <h1>Hello Django!</h1>
         <p>My favorite bands are:</p>
             <ul>
@@ -10,16 +11,4 @@
                     <li>{{ band.name|upper}}</li>
                 {% endfor %}
             </ul>
-        <p>
-            I have
-            {% if bands|length < 5 %}
-                a few
-            {% elif bands|length < 10 %}
-                some
-            {% else %}
-                many
-            {% endif %}
-                favorite bands.
-        </p>
-    </body>
-</html>
+{% endblock %}
