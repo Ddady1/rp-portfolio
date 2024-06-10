@@ -9,6 +9,11 @@
 <body>
     <h1>Hello music lovers</h1>
     <p>Here are my favorite songs:</p>
+        <ul>
+            {% for title in titles %}
+                <li>{{ title.title|upper }}</li>
+            {% endfor %}
+        </ul>
 
 
 </body>
