@@ -1,4 +1,4 @@
-# listings/admin.py
+#  listings/admin.py
 
 from django.contrib import admin
 
