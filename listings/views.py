@@ -19,9 +19,10 @@ def listings(request):
 def contact(request):
     return render(request, 'listings/contact.html')
 
-def band_detail(request, id):
+def band_detail(request, band_id):
+    band = Band.objects.get(id=band_id)
     return render(request,
                   'listings/band_detail.html',
-                  {'id': id})
+                  {'band': band})
 
 # Create your views here.
