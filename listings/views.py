@@ -12,9 +12,9 @@ def band_list(request):
 def about(request):
     return render(request, 'listings/about.html')
 
-def listings(request):
+def songs(request, song_id):
     titles = Listing.objects.all()
-    return render(request, 'listings/listings.html', {'titles': titles})
+    return render(request, 'listings/songs.html', {'titles': titles})
 
 def contact(request):
     return render(request, 'listings/contact.html')
@@ -24,5 +24,11 @@ def band_detail(request, band_id):
     return render(request,
                   'listings/band_detail.html',
                   {'band': band})
+
+def song_detail(request, song_id):
+    song = Listing.objects.get(id=song_id)
+    return render(request,
+                  'listings/song_detail.html',
+                  {'song': song})
 
 # Create your views here.
