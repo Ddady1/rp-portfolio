@@ -12,9 +12,9 @@ def band_list(request):
 def about(request):
     return render(request, 'listings/about.html')
 
-def songs(request, song_id):
+def songs_list(request):
     titles = Listing.objects.all()
-    return render(request, 'listings/songs.html', {'titles': titles})
+    return render(request, 'listings/songs_list.html', {'titles': titles})
 
 def contact(request):
     return render(request, 'listings/contact.html')
