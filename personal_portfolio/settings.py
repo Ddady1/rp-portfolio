@@ -130,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'uploads/'
 MEDIA_URL = 'media/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

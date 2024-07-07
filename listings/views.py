@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from listings.models import Band
 from listings.models import Listing
 from listings.forms import ContactUsForm
+from django.core.mail import send_mail
 
 def band_list(request):
     bands = Band.objects.all()
@@ -18,7 +19,18 @@ def songs_list(request):
     return render(request, 'listings/songs_list.html', {'titles': titles})
 
 def contact(request):
-    form = ContactUsForm()
+    print('The request methos is:', request.method)
+    print('The POST data is:', request.POST)
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+
+        if form.is_valid():
+            send_mail(subject=f'Message from {form.cleaned_data["name"] or "anonymous"} via listings Contact us',
+                      message=form.cleaned_data['message'],
+                      from_email=form.cleaned_data['email'],
+                      recipient_list=['admin@song.xyz'])
+    else:
+        form = ContactUsForm()
     return render(request, 'listings/contact.html', {'form': form})
 
 def band_detail(request, band_id):
