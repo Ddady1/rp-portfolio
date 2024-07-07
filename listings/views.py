@@ -6,6 +6,7 @@ from listings.models import Band
 from listings.models import Listing
 from listings.forms import ContactUsForm
 from django.core.mail import send_mail
+from django.shortcuts import redirect
 
 def band_list(request):
     bands = Band.objects.all()
@@ -29,6 +30,7 @@ def contact(request):
                       message=form.cleaned_data['message'],
                       from_email=form.cleaned_data['email'],
                       recipient_list=['admin@song.xyz'])
+        return redirect('sent-e')
     else:
         form = ContactUsForm()
     return render(request, 'listings/contact.html', {'form': form})
@@ -44,5 +46,9 @@ def song_detail(request, song_id):
     return render(request,
                   'listings/song_detail.html',
                   {'song': song})
+
+def email_sent(request):
+    return render(request, 'listings/email_sent.html')
+
 
 # Create your views here.
