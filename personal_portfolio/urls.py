@@ -33,5 +33,5 @@ urlpatterns = [
     path('about-us/', views.about),
     path('songs/', views.songs_list, name='songs-list'),
     path('songs/<int:song_id>/', views.song_detail, name='song-detail'),
-    path('contact-us/', views.contact),
+    path('contact-us/', views.contact, name='contact'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
