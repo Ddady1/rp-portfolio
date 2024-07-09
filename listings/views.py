@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from listings.models import Band
 from listings.models import Listing
-from listings.forms import BandForm, ContactUsForm
+from listings.forms import BandForm, ContactUsForm, SongForm
 from django.core.mail import send_mail
 from django.shortcuts import redirect
 
@@ -28,6 +28,16 @@ def about(request):
 def songs_list(request):
     titles = Listing.objects.all()
     return render(request, 'listings/songs_list.html', {'titles': titles})
+
+def song_create(request):
+    if request.method == 'POST':
+        form = SongForm(request.POST)
+        if form.is_valid():
+            song = form.save()
+            return redirect('song-detail', song.id)
+    else:
+        form = SongForm()
+    return render(request, 'listings/song_create.html', {'form': form})
 
 def contact(request):
     print('The request methos is:', request.method)
