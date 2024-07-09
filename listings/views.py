@@ -24,7 +24,14 @@ def band_create(request):
 
 def band_edit(request, band_id):
     band = Band.objects.get(id=band_id)
-    return render(request, 'listings/band_edit.html', {'band': band})
+    if request.method == 'POST':
+        form = BandForm(request.POST, instance=band)
+        if form.is_valid():
+            form.save()
+            return redirect('band-detail', band.id)
+    else:
+        form = BandForm(instance=band)
+    return render(request, 'listings/band_edit.html', {'form': form})
 
 def about(request):
     return render(request, 'listings/about.html')
