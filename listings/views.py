@@ -22,6 +22,10 @@ def band_create(request):
         form = BandForm()
     return render(request, 'listings/band_create.html', {'form': form})
 
+def band_edit(request, band_id):
+    band = Band.objects.get(id=band_id)
+    return render(request, 'listings/band_edit.html', {'band': band})
+
 def about(request):
     return render(request, 'listings/about.html')
 
