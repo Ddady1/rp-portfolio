@@ -35,6 +35,10 @@ def band_edit(request, band_id):
 
 def band_del(request, band_id):
     band = Band.objects.get(id=band_id)
+    if request.method == 'POST':
+        band.delete()
+        return redirect('band-list')
+
     return render(request, 'listings/band_del.html', {'band': band})
 
 def song_edit(request, song_id):
@@ -47,6 +51,14 @@ def song_edit(request, song_id):
     else:
         form = SongForm(instance=song)
     return render(request, 'listings/song_edit.html', {'form': form})
+
+def song_del(request, song_id):
+    song = Listing.objects.get(id=song_id)
+    if request.method == 'POST':
+        song.delete()
+        return redirect('songs-list')
+
+    return render(request, 'listings/song_del.html', {'song': song})
 
 def about(request):
     return render(request, 'listings/about.html')

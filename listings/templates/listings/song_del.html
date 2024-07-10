@@ -1,0 +1,16 @@
+<!--listings/templates/listings/song_del.html-->
+
+{% extends 'listings/base.html' %}
+
+{% block content%}
+
+<h1>Delete Song</h1>
+
+<p>Are you sure you want to delete the song {{ song.title }}</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="מחק">
+</form>
+
+{% endblock %}
