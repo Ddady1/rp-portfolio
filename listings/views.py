@@ -33,6 +33,17 @@ def band_edit(request, band_id):
         form = BandForm(instance=band)
     return render(request, 'listings/band_edit.html', {'form': form})
 
+def song_edit(request, song_id):
+    song = Listing.objects.get(id=song_id)
+    if request.method == 'POST':
+        form = SongForm(request.POST, instance=song)
+        if form.is_valid():
+            form.save()
+            return redirect('song-detail', song.id)
+    else:
+        form = SongForm(instance=song)
+    return render(request, 'listings/song_edit.html', {'form': form})
+
 def about(request):
     return render(request, 'listings/about.html')
 

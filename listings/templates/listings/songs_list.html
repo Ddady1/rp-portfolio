@@ -13,6 +13,7 @@
         <ul>
             {% for title in titles %}
             <li><a href="{% url 'song-detail' title.id %}">{{ title.title|upper }}</a></li>
+            - <a href="{% url 'song-edit' title.id %}">[edit]</a>
             {% endfor %}
         </ul>
 {% endblock %}

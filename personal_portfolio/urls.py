@@ -36,6 +36,7 @@ urlpatterns = [
     path('songs/', views.songs_list, name='songs-list'),
     path('songs/<int:song_id>/', views.song_detail, name='song-detail'),
     path('songs/add/', views.song_create, name='song-create'),
+    path('songs/<int:song_id>/change', views.song_edit, name='song-edit'),
     path('contact-us/', views.contact, name='contact'),
     path('email-sent/', views.email_sent, name='sent-e'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
