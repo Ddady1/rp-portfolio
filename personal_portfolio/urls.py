@@ -41,4 +41,5 @@ urlpatterns = [
     path('songs/<int:song_id>/delete/', views.song_del, name='song-del'),
     path('contact-us/', views.contact, name='contact'),
     path('email-sent/', views.email_sent, name='sent-e'),
+    path('search/', views.search_main, name='search-main')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
