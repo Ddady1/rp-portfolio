@@ -2,6 +2,10 @@
 
 from django.db import models
 
+
+class Search(models.Model):
+    search_name = models.fields.CharField(max_length=100)
+
 class Book(models.Model):
     book_name = models.fields.CharField(max_length=100)
     author_name = models.fields.CharField(max_length=50)
