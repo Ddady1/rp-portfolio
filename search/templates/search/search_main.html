@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Compare IT</title>
-    <h1>What would like to compare today?</h1>
-</head>
-<body>
+<!--search/templates/search/search_main.html-->
 
-</body>
-</html>
+
+{% extends 'search/base.html' %}
+
+{% block content %}
+
+<h1>What would like to compare today?</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="book_name" id="book">
+    <input type="submit" value="Submit">
+</form>
+
