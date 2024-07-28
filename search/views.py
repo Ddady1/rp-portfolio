@@ -4,11 +4,13 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import HttpResponse
 from search.Tzomet_script import tzomet
+from search.Stimatzky_script import stimazky
 
 def search_main(request):
     if request.method == 'POST':
         book_name = request.POST.get('book_name')
-        results = tzomet(book_name)
+        #results = tzomet(book_name)
+        results = stimazky(book_name)
         #results = 'good book'
         print(results)
         #return HttpResponse(f'{results}')
