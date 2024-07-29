@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <a href="{% url 'search-main' %}">Back to Main search</a>
 </head>
 <body>
-
+    <h2>Tzomet Books</h2>
     <ul>
-        {% for book in book_details.items %}
+        {% for book in tzomet_book_details.items %}
+            <h2>{{ book.0 }}</h2>
+                {% for item in book.1 %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+
+        {% endfor %}
+    </ul>
+    <h2>Stimazky Books</h2>
+    <ul>
+        {% for book in stimazky_book_details.items %}
             <h2>{{ book.0 }}</h2>
                 {% for item in book.1 %}
                     <li>{{ item }}</li>
