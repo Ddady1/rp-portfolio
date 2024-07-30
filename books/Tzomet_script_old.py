@@ -16,6 +16,7 @@ def tzomet(bookname):
     is_digital = False
     in_basket = 'הוסף לסל'
     price_str = 'מחיר מכירה'
+    price_before = 'מחיר קודם'
     books_image = []
     for image in images:
         books_image.append(image.get_attribute("src"))
@@ -28,12 +29,15 @@ def tzomet(bookname):
         raw_details = book.text
         book_id = book.get_attribute("data-prodid")
         book_details = raw_details.split('\n')
-        #print(book_details)
+        print(book_details)
         if exc[looper].text in book_details:
             book_details.remove(exc[looper].text)
-        if price_str in book_details:
-            book_details.remove(price_str)
-        #print(book_details)
+        #if price_str in book_details:
+        #    book_details.remove(price_str)
+        print(book_details)
+        #if price_before in book_details:
+        #    book_details.remove(price_before)
+        print(book_details)
         if len(book_details) >= 5:
             book_details.pop(0)
         book_details.append(books_image[looper])
@@ -62,7 +66,7 @@ def tzomet(bookname):
 
 
 #driver = webdriver.Chrome()
-# driver.get('https://www.booknet.co.il/')
+#driver.get('https://www.booknet.co.il/')
 #bookname = input('Please enter books name:')
 
 

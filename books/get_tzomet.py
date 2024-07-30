@@ -1,4 +1,4 @@
-from books.Tzomet_script import tzomet
+from books.Tzomet_script_old import tzomet
 
 
 bookname = input('Please enter books name:')

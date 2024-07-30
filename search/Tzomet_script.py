@@ -31,8 +31,8 @@ def tzomet(bookname):
         #print(book_details)
         if exc[looper].text in book_details:
             book_details.remove(exc[looper].text)
-        if price_str in book_details:
-            book_details.remove(price_str)
+        #if price_str in book_details:
+        #    book_details.remove(price_str)
         #print(book_details)
         if len(book_details) >= 5:
             book_details.pop(0)
