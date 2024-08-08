@@ -5,12 +5,27 @@ from selenium.webdriver.common.by import By
 def shufersal(itemname):
     driver = webdriver.Chrome()
     driver.get(f'https://www.shufersal.co.il/online/he/search?text={itemname}')
-    items = driver.find_elements(By.XPATH, '//ul[@class="tileContainer newDesignProductTabsMobile"]')
+    items = driver.find_elements(By.XPATH, '//div[@class="textContainer"]')
+    images = driver.find_elements(By.XPATH, '//div/a/img[@class="pic"]')
     print(type(items))
     print(len(items))
-    for item in items:
-        print(item.text)
+    item_images = []
+    for image in images:
+        item_images.append(image.get_attribute('src'))
+    print(len(item_images))
+    print(item_images)
+    if len(item_images) != len(items):
+        item_images.pop(0)
+        clean_item_images = []
+        for x in range(len(items)):
+            clean_item_images.append(item_images[x])
 
+    print(clean_item_images)
+    i = 0
+    for item in items:
+        i += 1
+        print(item.text)
+    print(i)
 itemname = input('Please enter item name:')
 pro = shufersal(itemname)
 
